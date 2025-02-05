@@ -1,95 +1,124 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
+
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const router = useRouter();
+  const [loading, setLoading] = useState(true);
+  const [redirected, setRedirected] = useState(false);
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const timer = setTimeout(() => {
+      setLoading(false);
+      setRedirected(true);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    if (redirected) {
+      router.push("/home");
+    }
+  }, [redirected]);
+
+  return (
+    <div className="container-fluid">
+      {loading ? (
+        <span className="loader" role="status" aria-live="polite">
+          Load&nbsp;ng
+        </span>
+      ) : (
+        <p>Redirecting...</p>
+      )}
+
+      <style jsx>{`
+        .container-fluid {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          background: rgb(38, 48, 56);
+        }
+
+        .loader {
+          color: #fff;
+          position: relative;
+          display: inline-block;
+          margin-top: 40px;
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 48px;
+          letter-spacing: 4px;
+          box-sizing: border-box;
+        }
+
+        .loader::before {
+          content: '';  
+          position: absolute;
+          right: 70px;
+          bottom: 10px;
+          height: 28px;
+          width: 5.15px;
+          background: currentColor;
+          box-sizing: border-box;
+          animation: animloader1 1s linear infinite alternate;
+        }
+
+        .loader::after {
+          content: '';  
+          width: 10px;
+          height: 10px;
+          position: absolute;
+          left: 125px;
+          top: 2px;
+          border-radius: 50%;
+          background: red;
+          box-sizing: border-box;
+          animation: animloader 1s linear infinite alternate;
+        }
+
+        @keyframes animloader {
+          0% {
+            transform: translate(0px, 0px) scaleX(1);
+          }
+          14% {
+            transform: translate(-12px, -16px) scaleX(1.05);
+          }
+          28% {
+            transform: translate(-27px, -28px) scaleX(1.07);
+          }
+          42% {
+            transform: translate(-46px, -35px) scaleX(1.1);
+          }
+          57% {
+            transform: translate(-70px, -37px) scaleX(1.1);
+          }
+          71% {
+            transform: translate(-94px, -32px) scaleX(1.07);
+          }
+          85% {
+            transform: translate(-111px, -22px) scaleX(1.05);
+          }
+          100% {
+            transform: translate(-125px, -9px) scaleX(1);
+          }
+        }
+
+        @keyframes animloader1 {
+          0% {
+            box-shadow: 0 -6px, -122.9px -8px;
+          }
+          25%, 75% {
+            box-shadow: 0 0px, -122.9px -8px;
+          }
+          100% {
+            box-shadow: 0 0px, -122.9px -16px;
+          }
+        }
+      `}</style>
     </div>
   );
 }
