@@ -9,8 +9,6 @@ export default function Home() {
   const [redirected, setRedirected] = useState(false);
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
-
     const timer = setTimeout(() => {
       setLoading(false);
       setRedirected(true);
