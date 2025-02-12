@@ -1,7 +1,15 @@
-"use client"
+"use client";
 
-export default function Product() {
+export default function Product(props) {
+  // console.log(props.price)
   return (
-    <div><button>product</button></div>
-  )
+    <div>
+      <button
+        className="btn btn-sm btn-success"
+        onClick={() => alert(props.price)}
+      >
+        Check price
+      </button>
+    </div>
+  );
 }

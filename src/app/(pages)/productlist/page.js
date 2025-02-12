@@ -38,7 +38,7 @@ export default function page() {
     );
 
   return (
-    <div>
+    <div className="container-fluid">
       Product list -Client component
       {/* <Notification message="This is a success message!" status="success" /> */}
       <ul>

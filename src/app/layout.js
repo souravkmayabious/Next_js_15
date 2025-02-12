@@ -11,7 +11,7 @@ import Navbar from "./component/Navbar";
 
 export default function RootLayout({ children }) {
   const pathname = usePathname();
-  const noNavbarRoutes = ["/", "/auth/register","/404"];
+  const noNavbarRoutes = ["/","/404"];
   return (
     <html lang="en">
       <head>

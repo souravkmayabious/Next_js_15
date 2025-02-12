@@ -1,30 +1,30 @@
 "use client";
 
+import Link from "next/link";
+
 export default function Login() {
+
+   async function formSubmit(e){
+    e.preventDefault();
+    alert("OK")
+  }
+
   return (
     <>
-      <div className="container m-5 p-5">
-        <main className="form-signin w-100 m-auto">
-          <form>
-            <img
-              className="mb-4"
-              src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg"
-              alt=""
-              width="72"
-              height="57"
-            />
-            <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
-
+      <div className="container my-5 p-5">
+      <main className="form-signin w-50 w-md-100 m-auto card p-3">
+          <form method="post" className="text-center">
+            <h1 className="h5 mb-3 fw-normal">Sign in</h1>
             <div className="form-floating">
               <input
                 type="email"
-                className="form-control"
+                className="form-control form-control-sm"
                 id="floatingInput"
                 placeholder="name@example.com"
               />
               <label htmlFor="floatingInput">Email address</label>
             </div>
-            <div className="form-floating">
+            <div className="form-floating mt-1">
               <input
                 type="password"
                 className="form-control"
@@ -45,11 +45,13 @@ export default function Login() {
                 Remember me
               </label>
             </div>
-            <button className="btn btn-primary w-100 py-2" type="submit">
+            <button className="btn btn-primary w-50 border rounded-0 py-2" onClick={(e)=>formSubmit(e)} type="submit">
               Sign in
             </button>
-            <p className="mt-5 mb-3 text-body-secondary">&copy; 2017–2024</p>
           </form>
+
+          <p className="text-body-secondary mt-2">New here ? <Link href="/auth/register">register</Link></p>
+          <p className="text-body-secondary">Don't remember password ? <Link href="/auth/forgot">forgot</Link></p>
         </main>
       </div>
       <style jsx>{`
