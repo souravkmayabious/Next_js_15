@@ -1,3 +1,3 @@
 export default function details({ params }) {
-  return <p>Movie {params.id}</p>;
+  return <div className="container-fluid">Movie {params.id}</div>;
 }

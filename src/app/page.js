@@ -12,7 +12,7 @@ export default function Home() {
     const timer = setTimeout(() => {
       setLoading(false);
       setRedirected(true);
-    }, 3000);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, []);

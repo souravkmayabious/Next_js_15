@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function abc() {
   return (
-    <>
+    <div className="container-fluid">
       <p> Movie Page</p>
       <ul>
         <li>
@@ -22,6 +22,6 @@ export default function abc() {
         </li>
 
       </ul>
-    </>
+    </div>
   );
 }

@@ -4,7 +4,7 @@ export default function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
-        <Link className="navbar-brand" href="/">
+        <Link className="navbar-brand" href="/home">
           SOURAV
         </Link>
         <button
@@ -37,6 +37,11 @@ export default function Navbar() {
             <li className="nav-item">
               <Link className="nav-link" href="/movie">
                 Movie
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" href="/course">
+                Course
               </Link>
             </li>
           </ul>

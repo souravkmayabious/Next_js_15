@@ -1,5 +1,9 @@
 @import 'https://fonts.googleapis.com/css?family=Inconsolata';
 
+.navbar{
+  display: none !important;
+}
+
 html {
   min-height: 100%;
 }
