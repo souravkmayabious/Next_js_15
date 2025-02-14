@@ -1,8 +1,9 @@
 import Link from "next/link";
+import styles from "./../styles/navbar.css";
 
 export default function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg sticky-top bg-body-tertiary">
       <div className="container-fluid">
         <Link className="navbar-brand" href="/home">
           SOURAV
@@ -44,6 +45,17 @@ export default function Navbar() {
                 Course
               </Link>
             </li>
+            <li className="nav-item dropdown">
+              <Link className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i className="fa-solid fa-cloud-sun"></i>
+                </Link>
+                <ul className="dropdown-menu">
+                  <li><Link className="dropdown-item" href="#">Action</Link></li>
+                  <li><Link className="dropdown-item" href="#">Another action</Link></li>
+                  <li><hr className="dropdown-divider" /></li>
+                  <li><Link className="dropdown-item" href="#">Something else here</Link></li>
+              </ul>
+            </li>
           </ul>
           <form className="d-flex" role="search">
             <input
@@ -56,9 +68,10 @@ export default function Navbar() {
               <i className="fa-solid fa-magnifying-glass"></i>
             </button>
           </form>
+   
           &nbsp;
-          <Link href='/auth/login' className="btn btn-outline-danger" type="submit">
-            Signup / Login
+          <Link href='/auth/login' className=" nav-link" type="submit">
+              Login
           </Link>
         </div>
       </div>

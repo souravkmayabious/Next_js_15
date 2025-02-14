@@ -1,0 +1,65 @@
+/* .nav-link{
+    color: brown !important;
+    font-size: 16px !important;
+    font-family: Crimson;
+    transition: 2s linear;
+    margin: 2px;
+}
+
+.nav-link:hover{
+    margin: 0px;
+  border-bottom: 2px solid brown;   
+  border-top: 2px solid brown;   
+  transition: 2s linear;
+} */
+
+
+.nav-link {
+    color: brown !important;
+    font-size: 16px !important;
+    font-family: Crimson;
+    text-decoration: none;
+    transition: all 0.4s ease-in-out;
+    padding: 5px 10px;
+    position: relative;
+    display: inline-block;
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: brown;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.4s ease-in-out, height 0.4s ease-in-out;
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1);
+    height: 4px;  /* Increase border thickness smoothly */
+}
+
+.nav-link:hover {
+    color: darkred !important;
+    transform: scale(1.05);
+}
+
+/* Responsive tweaks for better mobile usability */
+@media (max-width: 768px) {
+    .nav-link {
+        font-size: 14px !important; /* Slightly smaller text for mobile */
+        padding: 8px; /* More touch-friendly spacing */
+    }
+
+    .nav-link::after {
+        height: 1px;
+    }
+
+    .nav-link:hover::after {
+        height: 3px; /* Thicker border on hover, but not too thick */
+    }
+}
