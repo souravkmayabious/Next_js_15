@@ -24,7 +24,7 @@ export default function Home() {
                   data-type='[ " Travel Blogger. ", "Content Writter. ", "Food Guides " ]'
                 ></span>
               </p>
-              <h2>
+              <h2  className="typed-out">
                 Hello, I’m 
                 <span> Sourav</span>
               </h2>
@@ -45,8 +45,10 @@ export default function Home() {
               </form>
             </div>
             <div className="col-lg-6 text-right d-none d-lg-block">
-              <img
-                src="https://stories-nextjs-v3.vercel.app/assets/imgs/authors/featured.png"
+              <Image
+                src="/static/images/blog_main.png"
+                height={400}
+                width={600}
                 alt="aaa"
               />
             </div>

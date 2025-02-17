@@ -19,6 +19,8 @@ const nextConfig = {
         },
       ],
     },
+    exportTrailingSlash: true,
+    output : 'export',
   };
   
   export default nextConfig;

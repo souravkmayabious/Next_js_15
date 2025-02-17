@@ -49,3 +49,38 @@
 .bg-primary {
     background-color: #5869da !important;
 }
+
+/* .typed-out{
+    overflow: hidden;
+    border-right: .10em solid orange;
+    white-space: nowrap;
+    animation: typing 5s steps(20) infinite;
+    font-size: 1.6rem;
+    width: 0;
+  } */
+  /* @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  } */
+/* Default (for mobile and smaller screens) */
+.typed-out {
+    border-right: none; 
+    width: auto; 
+    animation: none;
+  }
+  
+  /* Apply animation only on desktop */
+  @media screen and (min-width: 768px) {
+    .typed-out {
+      border-right: .15em solid rgba(255, 166, 0, 0.76);
+      animation: typing 3s steps(20) infinite;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+  
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+  }
+  

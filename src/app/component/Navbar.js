@@ -49,11 +49,11 @@ export default function Navbar() {
               <Link className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   <i className="fa-solid fa-cloud-sun"></i>
                 </Link>
-                <ul className="dropdown-menu">
-                  <li><Link className="dropdown-item" href="#">Action</Link></li>
-                  <li><Link className="dropdown-item" href="#">Another action</Link></li>
-                  <li><hr className="dropdown-divider" /></li>
-                  <li><Link className="dropdown-item" href="#">Something else here</Link></li>
+                <ul className="dropdown-menu text-center"> 
+                  <li><Link className="dropdown-item" href="#"><i className="fa-solid fa-sun"></i> Day</Link></li>
+                  <li><Link className="dropdown-item" href="#"><i className="fa-solid fa-moon"></i> Night</Link></li>
+                  {/* <li><hr className="dropdown-divider" /></li>
+                  <li><Link className="dropdown-item" href="#">Something else here</Link></li> */}
               </ul>
             </li>
           </ul>
